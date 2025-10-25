@@ -9,7 +9,7 @@ The main purpose of this repo is to:
 
 This collection is a work in progress. New solutions will be added as I continue to practice.
 
-## 🚀 C++ Workflow Setup (VS Code)
+## C++ Workflow Setup (VS Code)
 
 This repository is set up for a simple and effective C++ workflow on Windows using VS Code.
 
