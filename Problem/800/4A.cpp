@@ -8,6 +8,3 @@ int main() {
     else cout << "NO";
 }
 
-//pretty simple, just need to check if an integer can be split into two even integers
-//we know even + even = even
-//also need to check for border case w = 2
