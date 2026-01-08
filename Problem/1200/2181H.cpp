@@ -1,6 +1,9 @@
 #include <iostream>
+#include <vector>
+#include <numeric>
 using namespace std;
 using ll = long long; 
+/*
 void solve() {
     ll w,h,d;
     cin >> w >> h >> d;
@@ -26,8 +29,27 @@ void solve() {
             }
         }
     }
+} //Inefficeint approach
+*/ 
+void solve() {
+    ll w, h, d;
+    cin >> w >> h >> d;
+    ll n;
+    cin >> n;
+    ll a = gcd(n,w);
+    n = n/a;
+    ll b = gcd(n,h);
+    n = n/b;
+    ll c = n;
+    if(d%c != 0) {
+        cout << -1 << endl;
+        return;
+    }
+    else {
+        cout << a-1 << " " << b-1 << " " << c-1 << endl;
+    }
 }
-//implement efficient solution later
+
 int main() {
     solve();
     return 0;
