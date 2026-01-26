@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-long long int inv_count = 0;
-    void merge(vector<int>& nums, int l, int m, int r) {
+    int merge(vector<int>& nums, int l, int m, int r) {
+        int inv_count=0;
         int n1=m-l+1;
         int n2=r-m;
         vector<int> left(n1);
@@ -31,20 +30,23 @@ long long int inv_count = 0;
         while(rp<n2) {
             nums[i++]=right[rp++];
         }
+        return inv_count;
     }
-    void mergesort(vector<int>& nums, int l, int r) {
-        if(l>=r) return;
+    int mergesort(vector<int>& nums, int l, int r) {
+        int inv_count = 0;
+        if(l>=r) return inv_count;
         int m = (l+r)/2;
-        mergesort(nums,l,m);
-        mergesort(nums,m+1,r);
-        merge(nums, l, m, r);
+        inv_count+=mergesort(nums,l,m);
+        inv_count+=mergesort(nums,m+1,r);
+        inv_count+=merge(nums, l, m, r);
+        return inv_count;
     }
-    void numberOfInversions(vector<int>& nums) {
-        mergesort(nums, 0, nums.size()-1);
+    int numberOfInversions(vector<int>& nums) {
+        int inv_count = mergesort(nums, 0, nums.size()-1);
+        return inv_count;
     }
-
     int main() {
     vector<int> nums = {2, 3, 8, 6, 1}; //expected output 5
-    numberOfInversions(nums);
+    int inv_count = numberOfInversions(nums);
     cout << inv_count << endl;
 }
